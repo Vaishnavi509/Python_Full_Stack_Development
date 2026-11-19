@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset default margins and set font */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Center the form on the page with a soft background */
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style the form container as a white card */
+        form {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 360px;
+        }
+
+        /* Adjust the h1 tags so they look like clean form labels */
+        h1 {
+            font-size: 0.95rem;
+            color: #333333;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        /* Style the text and password input boxes */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        /* Highlight input border when clicked */
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        /* Style the login button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        /* Darken button on hover */
+        button[type="submit"]:hover {
+            background-color: #0052a3;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>UserName :</h1>
+        <input type="text" name="username" required>
+        
+        <h1>Password :</h1>
+        <input type="password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
