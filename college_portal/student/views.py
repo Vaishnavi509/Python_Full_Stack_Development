@@ -58,11 +58,29 @@ def user_login(request):
 @login_required(login_url='login')
 def dashboard(request):
      return render(request,'Dashboard.html')
+
+from django.contrib.auth import logout
+from django.http import HttpResponse
+
 def user_logout(request):
-     if request.method=='POST':
-          logout(request)
-          return HttpResponse("You have logged out successfully!")
-     return HttpResponse("Invalid request!")
+    """
+    Handle user logout.
+    Logs out the authenticated user when a POST request is received.
+    """
+    if request.method == 'POST':
+        logout(request)
+        return HttpResponse(
+            "<h2 style='color: green; text-align: center;'>"
+            "✓ You have logged out successfully!"
+            "</h2>"
+        )
+
+    return HttpResponse(
+        "<h2 style='color: red; text-align: center;'>"
+        "⚠ Invalid request!"
+        "</h2>"
+    )
+
       
       
 
